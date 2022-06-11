@@ -1,19 +1,18 @@
-const path = require('path');
-const webpack = require('webpack');
-const package = require('./package.json');
+const path = require("path");
+const webpack = require("webpack");
+const package = require("./package.json");
 
-const isProd = process.env.NODE_ENV === 'production';
-const publicPath = isProd ? package.panelServingUrl : 'http://0.0.0.0:8080/';
-const buildPath = path.resolve(__dirname, 'dist');
+const isProd = process.env.NODE_ENV === "production";
+const publicPath = isProd ? package.panelServingUrl : "http://0.0.0.0:8080/";
+const buildPath = path.resolve(__dirname, "dist");
 
 module.exports = {
-  mode: isProd ? 'production' : 'development',
-  entry: './src/index.js',
+  mode: isProd ? "production" : "development",
+  entry: "./src/index.js",
   resolve: {
     alias: {
-      react: path.resolve('./node_modules/react'),
-      '@emotion/react': path.resolve('./node_modules/@emotion/react')
-    }
+      react: path.resolve("./node_modules/react"),
+    },
   },
   module: {
     rules: [
@@ -21,21 +20,21 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader",
         },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        use: ['url-loader']
+        use: ["url-loader"],
       },
-      {    
+      {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ['file-loader']
-      }
+        use: ["file-loader"],
+      },
     ],
   },
   plugins: [
@@ -44,19 +43,20 @@ module.exports = {
     }),
   ],
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
+    filename: "[name].js",
+    chunkFilename: "[name].chunk.js",
     path: buildPath,
     publicPath,
   },
   devServer: {
     contentBase: buildPath,
-    host: '0.0.0.0',
+    host: "0.0.0.0",
     port: 8080,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    }
-  }
-}
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization",
+    },
+  },
+};
