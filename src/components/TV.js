@@ -4,11 +4,12 @@ import "./TV.css";
 import tvChannels from "../data/tv-channels";
 import tvSources from "../data/tv-sources";
 import { HassContext } from "./Dashboard";
+import withHass from "../hoc/with-hass";
 
-const TV = ({ data }) => {
-  const hass = useContext(HassContext);
-  console.log(hass)
-  
+const TV = ({ data, hass }) => {
+  // const hass = useContext(HassContext);
+  console.log(hass);
+
   const renderChannel = ({ name, image }) => (
     <img
       src={image}
@@ -33,4 +34,4 @@ const TV = ({ data }) => {
   );
 };
 
-export default TV;
+export default withHass(TV);
