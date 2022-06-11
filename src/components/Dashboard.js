@@ -2,9 +2,10 @@ import React from "react";
 import TV from "./TV";
 import "./Dashboard.css";
 import HassContext from "../context/HassContext";
+import hassConfig from "../config/hass";
 
 const Dashboard = ({ hass }) => {
-  const tv = hass.connection._ent.state["media_player.lg_webos_tv_uk6200pla"];
+  const tv = hass.connection._ent.state[hassConfig.entities["bedroom_tv"]];
 
   return (
     <HassContext.Provider value={hass}>

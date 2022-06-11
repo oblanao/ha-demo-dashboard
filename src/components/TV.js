@@ -5,7 +5,7 @@ import tvChannels from "../data/tv-channels";
 import tvSources from "../data/tv-sources";
 import "./TV.css";
 
-const TV = ({ data, hass }) => {
+const TV = ({ hass }) => {
   const renderChannel = ({ name, image }) => (
     <img
       src={image}
