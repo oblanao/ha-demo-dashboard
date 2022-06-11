@@ -6,7 +6,6 @@ The goal of this project is to have a wall mounted tablet running a dashboard to
 
 The goal is really to have one screen without any menu so I can have a global view of the more important thing in the home: alarm, lights, camera.
 
-
 ## Getting started
 
 Install
@@ -17,7 +16,7 @@ npm run install
 
 Run a development server
 
-```
+```bash
 npm run start
 ```
 

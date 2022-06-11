@@ -1,0 +1,24 @@
+.tv-card {
+  background: #ddd;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 20rem;
+  border-radius: 1.25rem;
+  padding: 2rem 1rem;
+  -webkit-box-shadow: 1px 4px 10px 2px #d7cdcc;
+  box-shadow: 1px 4px 10px 2px #d7cdcc;
+}
+
+.tv-card img {
+  max-width: 10rem;
+}
+
+.tv-sources {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
