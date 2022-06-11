@@ -14,6 +14,5 @@ const Dashboard = ({ hass }) => {
     </HassContext.Provider>
   );
 };
-export { HassContext };
 
 export default Dashboard;

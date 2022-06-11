@@ -1,15 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
+import withHass from "../hoc/with-hass";
 import * as tv from "../functions/tv";
-import "./TV.css";
 import tvChannels from "../data/tv-channels";
 import tvSources from "../data/tv-sources";
-import { HassContext } from "./Dashboard";
-import withHass from "../hoc/with-hass";
+import "./TV.css";
 
 const TV = ({ data, hass }) => {
-  // const hass = useContext(HassContext);
-  console.log(hass);
-
   const renderChannel = ({ name, image }) => (
     <img
       src={image}
