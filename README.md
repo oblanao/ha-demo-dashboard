@@ -28,8 +28,9 @@ panel_custom:
     sidebar_title: React Panel
     sidebar_icon: mdi:react
     url_path: react-panel-dev
-    js_url: http://host:port/main.js
+    js_url: http://192.168.68.66:8080/main.js
     embed_iframe: true
+    trust_external_script: true
     config:
       name: World
 ```
