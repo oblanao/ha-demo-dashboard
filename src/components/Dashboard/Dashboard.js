@@ -13,6 +13,7 @@
 
 // React needs to be imported like this, in all components
 import React from "react";
+import { HomePresence } from "..";
 
 // alternative way
 // import withHass from "../../hoc/with-hass";
@@ -26,11 +27,11 @@ import "./Dashboard.css";
 const Dashboard = () => {
   // main way
   const { hass } = useHass();
+  console.log(hass);
 
   return (
-    <div>
-      {/* Check that hass is working */}
-      <pre>{JSON.stringify(Object.keys(hass), null, 3)}</pre>
+    <div className="dashboard">
+      <HomePresence />
     </div>
   );
 };

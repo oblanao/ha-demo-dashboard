@@ -1,0 +1,11 @@
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
