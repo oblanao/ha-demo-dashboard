@@ -13,7 +13,7 @@
 
 // React needs to be imported like this, in all components
 import React from "react";
-import { HomePresence } from "..";
+import { HomePresence, Weather } from "..";
 
 // alternative way
 // import withHass from "../../hoc/with-hass";
@@ -31,6 +31,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
+      <Weather />
       <HomePresence />
     </div>
   );
