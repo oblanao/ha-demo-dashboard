@@ -1,0 +1,9 @@
+.weather {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+.weather-left {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
