@@ -28,7 +28,6 @@ const Dashboard = () => {
   // main way
   const { hass } = useHass();
   console.log(hass);
-
   return (
     <div className="dashboard">
       <Weather />
@@ -36,6 +35,8 @@ const Dashboard = () => {
       <div className="grid-2-cols">
         <Thermostat />
       </div>
+      {/* TODO: add camera component
+      @see: http://192.168.68.67:1984 (go2rtc) */}
     </div>
   );
 };
