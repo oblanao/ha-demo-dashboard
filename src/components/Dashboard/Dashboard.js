@@ -13,7 +13,7 @@
 
 // React needs to be imported like this, in all components
 import React from "react";
-import { HomePresence, Thermostat, Weather } from "..";
+import { Camera, HomePresence, Thermostat, Weather } from "..";
 
 // alternative way
 // import withHass from "../../hoc/with-hass";
@@ -35,8 +35,7 @@ const Dashboard = () => {
       <div className="grid-2-cols">
         <Thermostat />
       </div>
-      {/* TODO: add camera component
-      @see: http://192.168.68.67:1984 (go2rtc) */}
+      <Camera entity_id="front_camera" />
     </div>
   );
 };
