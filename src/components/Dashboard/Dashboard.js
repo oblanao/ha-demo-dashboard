@@ -13,7 +13,14 @@
 
 // React needs to be imported like this, in all components
 import React from "react";
-import { Camera, HomePresence, Thermostat, Weather } from "..";
+import {
+  Camera,
+  FrontGates,
+  FrontLock,
+  HomePresence,
+  Thermostat,
+  Weather,
+} from "..";
 
 // alternative way
 // import withHass from "../../hoc/with-hass";
@@ -36,6 +43,10 @@ const Dashboard = () => {
         <Thermostat />
       </div>
       <Camera entity_id="front_camera" />
+      <div className="grid-2-cols">
+        <FrontGates />
+        <FrontLock />
+      </div>
     </div>
   );
 };
