@@ -1,6 +1,6 @@
 {
-  "name": "homeassistant-react-dashboard",
-  "version": "1.0.0",
+  "name": "homeassistant-home-check-dashboard",
+  "version": "0.1.0",
   "license": "ISC",
   "panelServingUrl": "/local/my-panel",
   "scripts": {
