@@ -18,6 +18,8 @@ import {
   FrontGates,
   FrontLock,
   HomePresence,
+  IndoorMotion,
+  OutdoorMotion,
   Thermostat,
   Weather,
 } from "..";
@@ -46,6 +48,10 @@ const Dashboard = () => {
       <div className="grid-2-cols">
         <FrontGates />
         <FrontLock />
+      </div>
+      <div className="grid-3-cols">
+        <OutdoorMotion />
+        <IndoorMotion />
       </div>
     </div>
   );
