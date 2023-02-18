@@ -4,6 +4,7 @@ import "./Weather.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudRain } from "@fortawesome/free-solid-svg-icons";
 import getWeatherData from "../../functions/weather/get-weather-data";
+import { DashboardCard } from "../ui-elements";
 
 const Weather = () => {
   const { hass } = useHass();
@@ -27,27 +28,31 @@ const Weather = () => {
   const { icon, readable_state } = stateData;
 
   return (
-    <div className="weather">
-      <div className="weather-left">
-        <div>
-          <img src={icon} />
+    <DashboardCard>
+      <div className="weather">
+        <div className="weather-left">
+          <div className="weather-icon">
+            <img src={icon} />
+          </div>
+          <div>
+            <h2>{readable_state}</h2>
+            <h3>{friendly_name}</h3>
+          </div>
         </div>
-        <div>
-          <h4>{readable_state}</h4>
-          <h3>{friendly_name}</h3>
+        <div className="weather-right">
+          <h4 className="temperature">
+            {temperature}
+            <span className="unit">{temperature_unit}</span>
+          </h4>
+          <h5 className="precipitation">
+            <FontAwesomeIcon icon={faCloudRain} />
+            {/* TODO: check if precipitation key exists in hass.states["weather.snagov_home"].attributes */}
+            {precipitation || "0"}
+            <span className="unit"> {precipitation_unit}</span>
+          </h5>
         </div>
       </div>
-      <div className="weather-right">
-        <h4>
-          {temperature} {temperature_unit}
-        </h4>
-        <h5>
-          <FontAwesomeIcon icon={faCloudRain} />
-          {/* TODO: check if precipitation key exists in hass.states["weather.snagov_home"].attributes */}
-          {precipitation || "0"} {precipitation_unit}
-        </h5>
-      </div>
-    </div>
+    </DashboardCard>
   );
 };
 

@@ -1,9 +1,45 @@
 .weather {
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 15fr 4fr;
+  gap: 0.5rem;
+}
+
+.weather h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.weather h3 {
+  font-size: 0.8rem;
+  color: darkgray;
+}
+
+h4.temperature {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+span.unit {
+  font-size: 0.75rem;
+  color: darkgray;
+}
+
+h4.temperature > span.unit {
+  vertical-align: super;
 }
 
 .weather-left {
   display: grid;
   grid-template-columns: 1fr 4fr;
+  gap: 0.5rem;
+}
+
+.weather-icon {
+  width: 5rem;
+  height: auto;
+  margin-bottom: -1.35rem;
+}
+
+.precipitation > svg {
+  margin-right: 0.25rem;
 }
