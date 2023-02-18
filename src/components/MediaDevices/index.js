@@ -16,7 +16,6 @@ const MediaDevices = () => {
   ];
 
   const entities = entityIds.map((entityId) => states[entityId]);
-  console.log({ entities });
 
   const entitiesOn = entities.filter((entity) => entity.state === "on");
 

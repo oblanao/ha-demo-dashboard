@@ -10,7 +10,6 @@ const SmokeAlert = () => {
   const entityIds = ["binary_sensor.kitchen_smoke_sensor_smoke"];
 
   const entities = entityIds.map((entityId) => states[entityId]);
-  console.log({ entities });
 
   const entitiesOn = entities.filter((entity) => entity.state === "on");
 
