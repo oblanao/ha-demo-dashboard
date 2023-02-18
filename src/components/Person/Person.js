@@ -15,7 +15,6 @@ const Person = ({ name, image, tracker }) => {
 
   return (
     <div className="person">
-      {/* Check that hass is working */}
       <h3>{name}</h3>
       <img src={image} />
       <h5>{person_state === "home" ? "Home" : "Away"}</h5>
