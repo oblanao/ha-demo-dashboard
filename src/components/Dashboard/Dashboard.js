@@ -15,12 +15,14 @@
 import React from "react";
 import {
   AccessDoors,
+  Appliances,
   Camera,
   FrontGates,
   FrontLock,
   HomePresence,
   IndoorMotion,
   LightsOn,
+  MediaDevices,
   OutdoorMotion,
   SmokeAlert,
   Thermostat,
@@ -62,6 +64,10 @@ const Dashboard = () => {
         <WaterLeaks />
         <LightsOn />
         <SmokeAlert />
+      </div>
+      <div className="grid-2-cols">
+        <MediaDevices />
+        <Appliances />
       </div>
     </div>
   );
