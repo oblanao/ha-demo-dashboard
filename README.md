@@ -24,7 +24,7 @@ Add the following entry to your `configuration.yaml` file:
 
 ```yaml
 panel_custom:
-  - name: react-panel
+  - name: react-panel # must match custom element name (in index.js), i.e. customElements.define("react-panel",...)
     sidebar_title: React Panel
     sidebar_icon: mdi:react
     url_path: react-panel-dev
@@ -53,10 +53,11 @@ We then have to configure Home Assitant to use it:
 
 ```yaml
 panel_custom:
-  - name: react-panel
+  - name: react-panel # must match custom element name (in index.js), i.e. customElements.define("react-panel",...)
     sidebar_title: React Panel
     sidebar_icon: mdi:react
     url_path: react-panel-prod
+    module_url: /local/react-panel/main.js
     js_url: /local/react-panel/main.js
     embed_iframe: true
     config:

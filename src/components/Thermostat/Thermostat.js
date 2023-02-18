@@ -31,12 +31,14 @@ const Thermostat = () => {
       <h4>
         {selected_schedule} <em>({hvac_action})</em>
       </h4>
-      <div classnName="thermostat-buttons">
+      <div className="thermostat-buttons">
         {selected_schedule === "Always ON" && (
           <button onClick={() => setSchedule("Away")}>Set to Away</button>
         )}
         {selected_schedule === "Away" && (
-          <button onClick={() => setSchedule("Always ON")}>Set to Always ON</button>
+          <button onClick={() => setSchedule("Always ON")}>
+            Set to Always ON
+          </button>
         )}
       </div>
     </div>
