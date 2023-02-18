@@ -14,13 +14,17 @@
 // React needs to be imported like this, in all components
 import React from "react";
 import {
+  AccessDoors,
   Camera,
   FrontGates,
   FrontLock,
   HomePresence,
   IndoorMotion,
+  LightsOn,
   OutdoorMotion,
+  SmokeAlert,
   Thermostat,
+  WaterLeaks,
   Weather,
 } from "..";
 
@@ -51,7 +55,13 @@ const Dashboard = () => {
       </div>
       <div className="grid-3-cols">
         <OutdoorMotion />
+        <AccessDoors />
         <IndoorMotion />
+      </div>
+      <div className="grid-3-cols">
+        <WaterLeaks />
+        <LightsOn />
+        <SmokeAlert />
       </div>
     </div>
   );
