@@ -9,6 +9,7 @@ const Appliances = () => {
   const { states } = hass;
   const entityIds = [
     "fan.air_purifier",
+    "switch.ps5_power",
     "switch.kitchen_toaster_plug",
     "vacuum.roborock_s6",
     "humidifier.deerma_jsq2w_dbfc_humidifier",

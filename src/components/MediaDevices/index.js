@@ -9,7 +9,6 @@ const MediaDevices = () => {
   const { states } = hass;
   const entityIds = [
     "media_player.bedroom_fire_tv",
-    "switch.ps5_power",
     "media_player.living_room_chromecast_2",
     "media_player.bedroom_tv",
     "media_player.living_room_tv",
@@ -17,13 +16,21 @@ const MediaDevices = () => {
 
   const entities = entityIds.map((entityId) => states[entityId]);
 
-  const entitiesOn = entities.filter((entity) => entity.state === "on");
+  const entitiesOn = entities.filter((entity) => entity.state !== "off");
+
+  const turnAllDevicesOff = () =>
+    hass.callService("homeassistant", "turn_off", {
+      entity_id: "media_player.all_media_players",
+    });
 
   return (
     <div className="">
       <FontAwesomeIcon icon={faPodcast} size="3x" />
       <p>Media Devices</p>
       <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`}</p>
+      {!!entitiesOn.length && (
+        <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
+      )}
     </div>
   );
 };

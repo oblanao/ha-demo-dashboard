@@ -32,7 +32,7 @@ const LightsOn = () => {
     hass.callService("light", "turn_off", {
       entity_id: "light.all_lights",
     });
-    console.log('got new hass')
+  
   return (
     <div className="">
       <FontAwesomeIcon icon={faLightbulb} size="3x" />
