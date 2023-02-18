@@ -3,6 +3,7 @@ import { useHass } from "../../hooks";
 import "./Weather.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudRain } from "@fortawesome/free-solid-svg-icons";
+import getWeatherData from "../../functions/weather/get-weather-data";
 
 const Weather = () => {
   const { hass } = useHass();
@@ -22,14 +23,17 @@ const Weather = () => {
   } = attributes;
 
   const { state: weather_state } = data;
+  const stateData = getWeatherData(weather_state);
+  const { icon, readable_state } = stateData;
+
   return (
     <div className="weather">
       <div className="weather-left">
         <div>
-          <img src="https://via.placeholder.com/64x64.jpeg" />
+          <img src={icon} />
         </div>
         <div>
-          <h4>{weather_state}</h4>
+          <h4>{readable_state}</h4>
           <h3>{friendly_name}</h3>
         </div>
       </div>
