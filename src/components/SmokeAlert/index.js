@@ -1,9 +1,8 @@
-import { faSmog, faWater } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
 import { DashboardCard } from "../ui-elements";
 import "./SmokeAlert.css";
+import smoke from "../../resources/icons/smoke.png";
 
 const SmokeAlert = () => {
   const { hass } = useHass();
@@ -16,9 +15,10 @@ const SmokeAlert = () => {
 
   return (
     <DashboardCard variant={entitiesOn?.length && "warning"}>
-      <div className="">
-        <FontAwesomeIcon icon={faSmog} size="3x" />
-        <p>Smoke Alerts</p>
+      <div className="flex-col-center smoke-alert">
+        <img src={smoke} />
+        {/* <FontAwesomeIcon icon={faSmog} size="3x" /> */}
+        <h3>Smoke</h3>
         <p>{entitiesOn.length ? `WARNING` : `Clear`}</p>
       </div>
     </DashboardCard>
