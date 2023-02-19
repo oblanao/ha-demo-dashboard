@@ -3,7 +3,7 @@ const getIntegerAndDecimal = (number) => {
   const [integer, decimal] = asString.split(".");
 
   return {
-    integer: Number(integer),
+    integer: Number(integer) || '-',
     decimal: decimal ? Number(decimal) : 0,
   };
 };

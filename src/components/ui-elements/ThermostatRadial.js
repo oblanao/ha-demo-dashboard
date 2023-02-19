@@ -9,7 +9,7 @@ const ThermostatRadial = ({ current_temperature, hvac_action }) => {
   return (
     <div className="thermostat-radial-container">
       <div className="de">
-        <div className={`den ${!isHeating ? "den-heating" : "den-idle"}`}>
+        <div className={`den ${isHeating ? "den-heating" : "den-idle"}`}>
           <div className="dene">
             <div className="denem">
               <div className="deneme">
