@@ -4,3 +4,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.front-lock img {
+  width: 100%;
+  max-width: 4rem;
+  height: auto;
+  margin-bottom: .5rem;
+}
+
+.front-lock h3 {
+  font-size: 1.25rem;
+}
