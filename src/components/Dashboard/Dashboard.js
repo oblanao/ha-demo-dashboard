@@ -41,8 +41,8 @@ import "./Dashboard.css";
 
 const Dashboard = () => {
   // main way
-  const { hass } = useHass();
-  console.log(hass);
+  // const { hass } = useHass();
+  // console.log(hass);
   return (
     <div className="dashboard">
       <Weather />
