@@ -1,5 +1,6 @@
 import React from "react";
 import { useHass } from "../../hooks";
+import { ThermostatRadial } from "../ui-elements";
 import "./Thermostat.css";
 
 const Thermostat = () => {
@@ -26,7 +27,11 @@ const Thermostat = () => {
 
   return (
     <div className="thermostat">
-      <h2>{current_temperature}</h2>
+      <ThermostatRadial
+        current_temperature={current_temperature}
+        hvac_action={hvac_action}
+      />
+      {/* <h2>{current_temperature}</h2>
       <h3>{target_temperature}</h3>
       <h4>
         {selected_schedule} <em>({hvac_action})</em>
@@ -40,7 +45,7 @@ const Thermostat = () => {
             Set to Always ON
           </button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

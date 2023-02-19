@@ -47,7 +47,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <Weather />
       <HomePresence />
-      <div className="grid-2-cols">
+      <div className="">
         <Thermostat />
       </div>
       <Camera entity_id="front_camera" />
