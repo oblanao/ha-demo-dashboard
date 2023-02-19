@@ -65,7 +65,7 @@ const Dashboard = () => {
         <LightsOn />
         <SmokeAlert />
       </div>
-      <div className="grid-2-cols">
+      <div className="grid-2-cols gap-4">
         <MediaDevices />
         <Appliances />
       </div>

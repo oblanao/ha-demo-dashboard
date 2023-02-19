@@ -1,9 +1,8 @@
-import { faPlug } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
 import { DashboardCard } from "../ui-elements";
 import "./Appliances.css";
+import plug from "../../resources/icons/plug.png";
 
 const Appliances = () => {
   const { hass } = useHass();
@@ -54,19 +53,20 @@ const Appliances = () => {
 
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
 
-  const turnAllDevicesOff = () => {
-    entitiesOn.map(({ entity_id, turn_off_service }) =>
-      hass.callService(turn_off_service.domain, turn_off_service.action, {
-        entity_id,
-      })
-    );
-  };
+  // const turnAllDevicesOff = () => {
+  //   entitiesOn.map(({ entity_id, turn_off_service }) =>
+  //     hass.callService(turn_off_service.domain, turn_off_service.action, {
+  //       entity_id,
+  //     })
+  //   );
+  // };
 
   return (
     <DashboardCard variant={entitiesOn?.length && "media-on"}>
-      <div className="">
-        <FontAwesomeIcon icon={faPlug} size="3x" />
-        <p>Appliances</p>
+      <div className="flex-col-center appliances">
+        {/* <FontAwesomeIcon icon={faPlug} size="3x" /> */}
+        <img src={plug} />
+        <h3>Appliances</h3>
         <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`}</p>
         {/* {!!entitiesOn.length && (
           <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
