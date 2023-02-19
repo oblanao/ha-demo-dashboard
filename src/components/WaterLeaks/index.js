@@ -1,9 +1,8 @@
-import { faWater } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
 import { DashboardCard } from "../ui-elements";
 import "./WaterLeaks.css";
+import waterLeak from "../../resources/icons/water-leak.png";
 
 const WaterLeaks = () => {
   const { hass } = useHass();
@@ -20,9 +19,10 @@ const WaterLeaks = () => {
 
   return (
     <DashboardCard variant={entitiesOn?.length && "warning"}>
-      <div className="">
-        <FontAwesomeIcon icon={faWater} size="3x" />
-        <p>Water Leaks</p>
+      <div className="flex-col-center water-leaks">
+        {/* <FontAwesomeIcon icon={faWater} size="3x" /> */}
+        <img src={waterLeak} />
+        <h3>Leaks</h3>
         <p>{entitiesOn.length ? `WARNING` : `Clear`}</p>
       </div>
     </DashboardCard>

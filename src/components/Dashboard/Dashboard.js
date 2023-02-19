@@ -60,7 +60,7 @@ const Dashboard = () => {
         <AccessDoors />
         <IndoorMotion />
       </div>
-      <div className="grid-3-cols">
+      <div className="grid-3-cols gap-2">
         <WaterLeaks />
         <LightsOn />
         <SmokeAlert />
