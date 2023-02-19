@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
 import "./LightsOn.css";
-
+import { DashboardCard } from "../ui-elements";
 const LightsOn = () => {
   const { hass } = useHass();
   const { states } = hass;
@@ -34,18 +34,20 @@ const LightsOn = () => {
     });
 
   return (
-    <div className="">
-      <FontAwesomeIcon icon={faLightbulb} size="3x" />
-      <p>Lights</p>
-      <p>
-        {!!entitiesOn.length
-          ? `${entitiesOn.length} lights on`
-          : `All lights off`}
-        {!!entitiesOn.length && (
-          <button onClick={() => turnAllLightsOff()}>Turn all off</button>
-        )}
-      </p>
-    </div>
+    <DashboardCard variant={entitiesOn?.length && "lights-on"}>
+      <div className="">
+        <FontAwesomeIcon icon={faLightbulb} size="3x" />
+        <p>Lights</p>
+        <p>
+          {!!entitiesOn.length
+            ? `${entitiesOn.length} lights on`
+            : `All lights off`}
+          {/* {!!entitiesOn.length && (
+            <button onClick={() => turnAllLightsOff()}>Turn all off</button>
+          )} */}
+        </p>
+      </div>
+    </DashboardCard>
   );
 };
 
