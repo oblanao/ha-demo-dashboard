@@ -1,9 +1,9 @@
-import { faDoorClosed } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
 import { DashboardCard } from "../ui-elements";
 import "./AccessDoors.css";
+import doorOpen from "../../resources/icons/door_open.png";
+import doorClosed from "../../resources/icons/door_closed.png";
 
 const AccessDoors = () => {
   const { hass } = useHass();
@@ -19,10 +19,11 @@ const AccessDoors = () => {
 
   return (
     <DashboardCard variant={entitiesOn?.length && "warning"}>
-      <div>
-        <FontAwesomeIcon icon={faDoorClosed} size="3x" />
-        <p>Access Doors</p>
-        <p>{entitiesOn.length ? `WARNING` : `All closed`}</p>
+      <div className="flex-col-center access-doors">
+        {/* <FontAwesomeIcon icon={faDoorClosed} size="3x" /> */}
+        <img src={entitiesOn?.length ? doorOpen : doorClosed} />
+        <h3>Doors</h3>
+        <p>{entitiesOn.length ? `Warning` : `All closed`}</p>
       </div>
     </DashboardCard>
   );

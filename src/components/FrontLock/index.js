@@ -26,7 +26,7 @@ const FrontLock = () => {
 
   return (
     <DashboardCard variant={isUnlocked && "warning"}>
-      <div className="front-lock">
+      <div className="front-lock flex-col-center">
         <img src={isUnlocked ? lockOpen : lockClosed} />
         {/* <FontAwesomeIcon icon={faLock} size="3x" /> */}
         <h3>Front Lock</h3>

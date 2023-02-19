@@ -21,7 +21,7 @@ const FrontGates = () => {
 
   return (
     <DashboardCard variant={!isClosed && "warning"}>
-      <div className="front-gates">
+      <div className="front-gates flex-col-center">
         <img src={isClosed ? gatesClosed : gatesOpen} />
         {/* <FontAwesomeIcon icon={faDoorClosed} size="3x" /> */}
         <h3>Front Gates</h3>

@@ -1,9 +1,8 @@
-import { faHandSparkles } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
 import { DashboardCard } from "../ui-elements";
 import "./IndoorMotion.css";
+import motionSensor from "../../resources/icons/motion-sensor.png";
 
 const IndoorMotion = () => {
   const { hass } = useHass();
@@ -19,9 +18,9 @@ const IndoorMotion = () => {
 
   return (
     <DashboardCard variant={entitiesOn?.length && "warning"}>
-      <div className="">
-        <FontAwesomeIcon icon={faHandSparkles} size="3x" />
-        <p>Indoor Motion</p>
+      <div className="flex-col-center indoor-motion">
+        <img src={motionSensor} />
+        <h3>Indoors</h3>
         <p>{entitiesOn.length ? `Detected` : `Clear`}</p>
       </div>
     </DashboardCard>

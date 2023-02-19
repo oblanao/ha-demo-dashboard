@@ -1,9 +1,8 @@
-import { faHandSparkles } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
 import { DashboardCard } from "../ui-elements";
 import "./OutdoorMotion.css";
+import motionSensor from "../../resources/icons/motion-sensor.png";
 
 const OutdoorMotion = () => {
   const { hass } = useHass();
@@ -20,9 +19,9 @@ const OutdoorMotion = () => {
 
   return (
     <DashboardCard variant={entitiesOn?.length && "warning"}>
-      <div className="">
-        <FontAwesomeIcon icon={faHandSparkles} size="3x" />
-        <p>Outdoor Motion</p>
+      <div className="flex-col-center outdoor-motion">
+        <img src={motionSensor} />
+        <h3>Outdoors</h3>
         <p>
           {entitiesOn.length
             ? `${entitiesOn.length} sensors triggered`

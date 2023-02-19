@@ -55,7 +55,7 @@ const Dashboard = () => {
         <FrontGates />
         <FrontLock />
       </div>
-      <div className="grid-3-cols">
+      <div className="grid-3-cols gap-2">
         <OutdoorMotion />
         <AccessDoors />
         <IndoorMotion />
