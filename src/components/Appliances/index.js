@@ -49,7 +49,7 @@ const Appliances = () => {
     ...states[entity_id], entity_id, turn_off_service
   }));
 
-  const entitiesOn = entities.filter((entity) => entity.state === "on");
+  const entitiesOn = entities.filter((entity) => entity?.state === "on");
 
   const turnAllDevicesOff = () => {
     entitiesOn.map(({ entity_id, turn_off_service }) =>

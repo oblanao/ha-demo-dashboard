@@ -14,7 +14,7 @@ const AccessDoors = () => {
 
   const entities = entityIds.map((entityId) => states[entityId]);
 
-  const entitiesOn = entities.filter((entity) => entity.state === "on");
+  const entitiesOn = entities.filter((entity) => entity?.state === "on");
 
   return (
     <div className="">

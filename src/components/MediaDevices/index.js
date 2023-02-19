@@ -8,7 +8,7 @@ const MediaDevices = () => {
   const { hass } = useHass();
   const { states } = hass;
   const entityIds = [
-    "media_player.bedroom_fire_tv",
+    // "media_player.bedroom_fire_tv",
     "media_player.living_room_chromecast_2",
     "media_player.bedroom_tv",
     "media_player.living_room_tv",
@@ -16,7 +16,7 @@ const MediaDevices = () => {
 
   const entities = entityIds.map((entityId) => states[entityId]);
 
-  const entitiesOn = entities.filter((entity) => entity.state !== "off");
+  const entitiesOn = entities.filter((entity) => entity?.state !== "off");
 
   const turnAllDevicesOff = () =>
     hass.callService("homeassistant", "turn_off", {

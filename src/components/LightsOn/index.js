@@ -18,7 +18,7 @@ const LightsOn = () => {
     "light.kitchen_porch_lights",
     "light.living_room_lights",
     "light.main_bathroom_lights",
-    "light.nanoleaf_canvas",
+    // "light.nanoleaf_canvas",
     "light.second_bathroom_lights",
     "light.office_lights",
     "light.utility_room_lights",
@@ -26,13 +26,13 @@ const LightsOn = () => {
 
   const entities = entityIds.map((entityId) => states[entityId]);
 
-  const entitiesOn = entities.filter((entity) => entity.state === "on");
+  const entitiesOn = entities.filter((entity) => entity?.state === "on");
 
   const turnAllLightsOff = () =>
     hass.callService("light", "turn_off", {
       entity_id: "light.all_lights",
     });
-  
+
   return (
     <div className="">
       <FontAwesomeIcon icon={faLightbulb} size="3x" />
