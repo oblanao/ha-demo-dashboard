@@ -5,7 +5,7 @@ import { useHass } from "../../hooks";
 import gatesOpen from "../../resources/icons/gates_open.png";
 import gatesClosed from "../../resources/icons/gates_closed.png";
 import "./FrontGates.css";
-import { DashboardCard } from "../ui-elements";
+import { DashboardCard, WarningCard } from "../ui-elements";
 
 const FrontGates = () => {
   const { hass } = useHass();
@@ -20,7 +20,7 @@ const FrontGates = () => {
   const isClosed = data.state === "off";
 
   return (
-    <DashboardCard>
+    <DashboardCard variant={!isClosed && "warning"}>
       <div className="front-gates">
         <img src={isClosed ? gatesClosed : gatesOpen} />
         {/* <FontAwesomeIcon icon={faDoorClosed} size="3x" /> */}

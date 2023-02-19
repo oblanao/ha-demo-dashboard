@@ -9,3 +9,50 @@
   border: 1px solid rgba(110, 102, 102, 0.3);
   /* border: 1px solid rgba(255, 255, 255, 0.18); */
 }
+
+.warning-bg {
+  /* background: linear-gradient(224deg, #f37335, #fdc830);
+  background-size: 400% 400%; */
+  background: linear-gradient(117deg, #8a2387, #e94057, #f27121);
+  background-size: 600% 600%;
+
+  -webkit-animation: animatedGradient 7.5s ease infinite;
+  -moz-animation: animatedGradient 7.5s ease infinite;
+  animation: animatedGradient 7.5s ease infinite;
+}
+
+/* Create other backgrounds using `variant`-bg as className */
+
+@-webkit-keyframes animatedGradient {
+  0% {
+    background-position: 91% 0%;
+  }
+  50% {
+    background-position: 10% 100%;
+  }
+  100% {
+    background-position: 91% 0%;
+  }
+}
+@-moz-keyframes animatedGradient {
+  0% {
+    background-position: 91% 0%;
+  }
+  50% {
+    background-position: 10% 100%;
+  }
+  100% {
+    background-position: 91% 0%;
+  }
+}
+@keyframes animatedGradient {
+  0% {
+    background-position: 91% 0%;
+  }
+  50% {
+    background-position: 10% 100%;
+  }
+  100% {
+    background-position: 91% 0%;
+  }
+}

@@ -25,7 +25,7 @@ const FrontLock = () => {
   const isUnlocked = data.state === "unlocked";
 
   return (
-    <DashboardCard>
+    <DashboardCard variant="success">
       <div className="front-lock">
         <img src={isUnlocked ? lockOpen : lockClosed} />
         {/* <FontAwesomeIcon icon={faLock} size="3x" /> */}
