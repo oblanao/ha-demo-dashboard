@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
 import "./MediaDevices.css";
+import { DashboardCard } from "../ui-elements";
 
 const MediaDevices = () => {
   const { hass } = useHass();
@@ -24,14 +25,16 @@ const MediaDevices = () => {
     });
 
   return (
-    <div className="">
-      <FontAwesomeIcon icon={faPodcast} size="3x" />
-      <p>Media Devices</p>
-      <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`}</p>
-      {!!entitiesOn.length && (
-        <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
-      )}
-    </div>
+    <DashboardCard variant={entitiesOn?.length && "media-on"}>
+      <div className="">
+        <FontAwesomeIcon icon={faPodcast} size="3x" />
+        <p>Media Devices</p>
+        <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`}</p>
+        {/* {!!entitiesOn.length && (
+          <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
+        )} */}
+      </div>
+    </DashboardCard>
   );
 };
 

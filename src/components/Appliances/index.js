@@ -2,6 +2,7 @@ import { faPlug } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
+import { DashboardCard } from "../ui-elements";
 import "./Appliances.css";
 
 const Appliances = () => {
@@ -46,7 +47,9 @@ const Appliances = () => {
   ];
 
   const entities = devices.map(({ entity_id, turn_off_service }) => ({
-    ...states[entity_id], entity_id, turn_off_service
+    ...states[entity_id],
+    entity_id,
+    turn_off_service,
   }));
 
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
@@ -60,14 +63,16 @@ const Appliances = () => {
   };
 
   return (
-    <div className="">
-      <FontAwesomeIcon icon={faPlug} size="3x" />
-      <p>Appliances</p>
-      <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`}</p>
-      {!!entitiesOn.length && (
-        <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
-      )}
-    </div>
+    <DashboardCard variant={entitiesOn?.length && "media-on"}>
+      <div className="">
+        <FontAwesomeIcon icon={faPlug} size="3x" />
+        <p>Appliances</p>
+        <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`}</p>
+        {/* {!!entitiesOn.length && (
+          <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
+        )} */}
+      </div>
+    </DashboardCard>
   );
 };
 

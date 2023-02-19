@@ -23,6 +23,20 @@
 
 .lights-on-bg {
   background: linear-gradient(117deg, #f7ff00, #db36a4);
+  background-size: 600% 600%;
+
+  -webkit-animation: animatedGradient 7.5s ease infinite;
+  -moz-animation: animatedGradient 7.5s ease infinite;
+  animation: animatedGradient 7.5s ease infinite;
+}
+
+.media-on-bg {
+  background: linear-gradient(117deg, #03001e, #7303c0, #ec38bc, #fdeff9);
+  background-size: 600% 600%;
+
+  -webkit-animation: animatedGradient 7.5s ease infinite;
+  -moz-animation: animatedGradient 7.5s ease infinite;
+  animation: animatedGradient 7.5s ease infinite;
 }
 
 /* Create other backgrounds using `variant`-bg as className */
