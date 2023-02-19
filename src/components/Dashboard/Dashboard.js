@@ -34,7 +34,7 @@ import {
 // import withHass from "../../hoc/with-hass";
 
 // main way
-import { useHass } from "../../hooks";
+// import { useHass } from "../../hooks";
 
 // css needs to be imported like this, in all components
 import "./Dashboard.css";

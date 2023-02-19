@@ -12,12 +12,12 @@ const Person = ({ name, image, tracker }) => {
   const { states } = hass;
   const person = states[`device_tracker.${tracker}`];
   const { state: person_state } = person;
+  const isHome = person_state === "home";
 
   return (
-    <div className="person">
-      <h3>{name}</h3>
+    <div className={`person ${!isHome ? "faded" : ""}`}>
       <img src={image} />
-      <h5>{person_state === "home" ? "Home" : "Away"}</h5>
+      <h3>{name}</h3>
       {/* <pre>{JSON.stringify(person, null, 3)}</pre> */}
     </div>
   );
