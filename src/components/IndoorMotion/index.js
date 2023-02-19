@@ -2,6 +2,7 @@ import { faHandSparkles } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
+import { DashboardCard } from "../ui-elements";
 import "./IndoorMotion.css";
 
 const IndoorMotion = () => {
@@ -17,11 +18,13 @@ const IndoorMotion = () => {
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
 
   return (
-    <div className="">
-      <FontAwesomeIcon icon={faHandSparkles} size="3x" />
-      <p>Indoor Motion</p>
-      <p>{entitiesOn.length ? `Detected` : `Clear`}</p>
-    </div>
+    <DashboardCard variant={entitiesOn?.length && "warning"}>
+      <div className="">
+        <FontAwesomeIcon icon={faHandSparkles} size="3x" />
+        <p>Indoor Motion</p>
+        <p>{entitiesOn.length ? `Detected` : `Clear`}</p>
+      </div>
+    </DashboardCard>
   );
 };
 

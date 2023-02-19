@@ -2,6 +2,7 @@ import { faHandSparkles } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
+import { DashboardCard } from "../ui-elements";
 import "./OutdoorMotion.css";
 
 const OutdoorMotion = () => {
@@ -18,13 +19,17 @@ const OutdoorMotion = () => {
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
 
   return (
-    <div className="">
-      <FontAwesomeIcon icon={faHandSparkles} size="3x" />
-      <p>Outdoor Motion</p>
-      <p>
-        {entitiesOn.length ? `${entitiesOn.length} sensors triggered` : `Clear`}
-      </p>
-    </div>
+    <DashboardCard variant={entitiesOn?.length && "warning"}>
+      <div className="">
+        <FontAwesomeIcon icon={faHandSparkles} size="3x" />
+        <p>Outdoor Motion</p>
+        <p>
+          {entitiesOn.length
+            ? `${entitiesOn.length} sensors triggered`
+            : `Clear`}
+        </p>
+      </div>
+    </DashboardCard>
   );
 };
 

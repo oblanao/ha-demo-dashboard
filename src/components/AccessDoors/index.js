@@ -2,6 +2,7 @@ import { faDoorClosed } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
+import { DashboardCard } from "../ui-elements";
 import "./AccessDoors.css";
 
 const AccessDoors = () => {
@@ -17,11 +18,13 @@ const AccessDoors = () => {
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
 
   return (
-    <div className="">
-      <FontAwesomeIcon icon={faDoorClosed} size="3x" />
-      <p>Access Doors</p>
-      <p>{entitiesOn.length ? `WARNING` : `All closed`}</p>
-    </div>
+    <DashboardCard variant={entitiesOn?.length && "warning"}>
+      <div>
+        <FontAwesomeIcon icon={faDoorClosed} size="3x" />
+        <p>Access Doors</p>
+        <p>{entitiesOn.length ? `WARNING` : `All closed`}</p>
+      </div>
+    </DashboardCard>
   );
 };
 
