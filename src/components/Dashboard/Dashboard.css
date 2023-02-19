@@ -5,3 +5,7 @@
   flex-direction: column;
   background: url("../../resources/images/bg-homekit.jpg");
 }
+
+.gap-4 {
+  gap: 1rem;
+}

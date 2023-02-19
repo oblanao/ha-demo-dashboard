@@ -51,7 +51,7 @@ const Dashboard = () => {
         <Thermostat />
       </div>
       <Camera entity_id="front_camera" />
-      <div className="grid-2-cols">
+      <div className="grid-2-cols gap-4">
         <FrontGates />
         <FrontLock />
       </div>
