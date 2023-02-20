@@ -1,12 +1,21 @@
 .hello-message {
-  margin-left: .25rem;
-  margin-top: .75rem;
-
+  display: grid;
+  grid-template-columns: 2fr 7fr;
+  gap: .75rem;
+  overflow: hidden;
 }
+
 .hello-message h3 {
   font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .hello-message h4 {
   font-size: 1.25rem;
+  color: #f4f13d;
+}
+
+.hello-message .icon {
+  position: relative;
+  overflow: hidden;
 }
