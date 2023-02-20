@@ -3,6 +3,7 @@ import Appliances from "./Appliances";
 import Camera from "./Camera/Camera";
 import FrontGates from "./FrontGates";
 import FrontLock from "./FrontLock";
+import HelloMessage from "./HelloMessage";
 import HomePresence from "./HomePresence/HomePresence";
 import IndoorMotion from "./IndoorMotion";
 import LightsOn from "./LightsOn";
@@ -20,6 +21,7 @@ export {
   Camera,
   FrontGates,
   FrontLock,
+  HelloMessage,
   HomePresence,
   IndoorMotion,
   LightsOn,

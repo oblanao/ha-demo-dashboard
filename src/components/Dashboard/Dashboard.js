@@ -19,6 +19,7 @@ import {
   Camera,
   FrontGates,
   FrontLock,
+  HelloMessage,
   HomePresence,
   IndoorMotion,
   LightsOn,
@@ -45,6 +46,7 @@ const Dashboard = () => {
   // console.log(hass);
   return (
     <div className="dashboard">
+      <HelloMessage />
       <Weather />
       <HomePresence />
       <div className="">
