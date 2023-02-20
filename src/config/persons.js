@@ -1,7 +1,7 @@
-import bogdan_image from "../data/persons/images/bogdan.jpeg";
-import oana_image from "../data/persons/images/oana.jpeg";
-import madalina_image from "../data/persons/images/madalina.jpeg";
-import mircea_image from "../data/persons/images/mircea.jpeg";
+import bogdan_image from "../resources/icons/bogdan.png";
+import oana_image from "../resources/icons/oana.png";
+import madalina_image from "../resources/icons/madalina.png";
+import mircea_image from "../resources/icons/mircea.png";
 
 export default [
   {
