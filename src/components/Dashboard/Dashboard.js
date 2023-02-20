@@ -45,7 +45,7 @@ const Dashboard = () => {
   // const { hass } = useHass();
   // console.log(hass);
   return (
-    <div className="dashboard">
+    <div className="dashboard gap-2">
       <HelloMessage />
       <Weather />
       <HomePresence />
@@ -53,7 +53,7 @@ const Dashboard = () => {
         <Thermostat />
       </div>
       <Camera entity_id="front_camera" />
-      <div className="grid-2-cols gap-4">
+      <div className="grid-2-cols gap-2">
         <FrontGates />
         <FrontLock />
       </div>
@@ -67,7 +67,7 @@ const Dashboard = () => {
         <LightsOn />
         <SmokeAlert />
       </div>
-      <div className="grid-2-cols gap-4">
+      <div className="grid-2-cols gap-2">
         <MediaDevices />
         <Appliances />
       </div>
