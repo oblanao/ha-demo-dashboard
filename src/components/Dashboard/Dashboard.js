@@ -35,15 +35,24 @@ import {
 // import withHass from "../../hoc/with-hass";
 
 // main way
-// import { useHass } from "../../hooks";
+import { useHass } from "../../hooks";
 
 // css needs to be imported like this, in all components
 import "./Dashboard.css";
 
 const Dashboard = () => {
   // main way
-  // const { hass } = useHass();
+  const { hass } = useHass();
   // console.log(hass);
+  const testApi = async () => {
+    const res = await hass.callApi(
+      "get",
+      "history/period/2023-02-20T00:00:00+02:00?filter_entity_id=binary_sensor.hue_motion_sensor_1_motion_2"
+    );
+    console.log(res);
+  };
+
+  testApi();
   return (
     <div className="dashboard gap-2">
       <HelloMessage />
