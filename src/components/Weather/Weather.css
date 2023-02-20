@@ -37,9 +37,17 @@ h4.temperature > span.unit {
 .weather-icon {
   width: 5rem;
   height: auto;
-  margin-bottom: -1.35rem;
+  /* margin-bottom: -1.5rem; */
 }
 
 .precipitation > svg {
   margin-right: 0.25rem;
+}
+
+.weather-text,
+.weather-right,
+.weather-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

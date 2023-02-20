@@ -34,7 +34,7 @@ const Weather = () => {
           <div className="weather-icon">
             <img src={icon} />
           </div>
-          <div>
+          <div className="weather-text">
             <h2>{readable_state}</h2>
             <h3>{friendly_name}</h3>
           </div>
