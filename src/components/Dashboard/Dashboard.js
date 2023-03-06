@@ -56,7 +56,7 @@ const Dashboard = () => {
   // testApi();
   return (
     <div className="dashboard gap-2">
-      <Modal show={true} />
+      {/* <Modal show={true} /> */}
       <HelloMessage />
       <Weather />
       <HomePresence />
