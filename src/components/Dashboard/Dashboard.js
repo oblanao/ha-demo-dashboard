@@ -36,6 +36,7 @@ import {
 
 // main way
 import { useHass } from "../../hooks";
+import Modal from "../ui-elements/Modal/Modal";
 
 // css needs to be imported like this, in all components
 import "./Dashboard.css";
@@ -55,6 +56,7 @@ const Dashboard = () => {
   // testApi();
   return (
     <div className="dashboard gap-2">
+      <Modal show={true} />
       <HelloMessage />
       <Weather />
       <HomePresence />

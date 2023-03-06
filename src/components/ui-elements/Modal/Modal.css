@@ -1,0 +1,79 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+.modal {
+  z-index: 1000;
+  width: 96%;
+  position: fixed;
+  bottom: 1.5rem;
+  left: 2%;
+}
+
+.modal-contents {
+  border-radius: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1b2021;
+  color: white;
+}
+
+.modal-contents .modal-header {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-contents h3 {
+  font-size: 0.75rem;
+  margin-bottom: .5rem;
+}
+
+.modal-contents p {
+  font-size: 0.75rem;
+}
+
+.modal-action-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.action-button {
+  outline: none;
+  border: none;
+  background-color: #1b2021;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.modal-action-buttons > .action-button {
+  border-top: 1px solid #d3d3d3;
+}
+
+.action-button.action-button-separate {
+  border-radius: 1rem;
+  font-weight: bold;
+}
+
+.modal-action-buttons > button:last-child {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.modal > .modal-contents:not(:last-child) {
+  margin-bottom: 1rem;
+}
