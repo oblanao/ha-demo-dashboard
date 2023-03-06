@@ -1,6 +1,6 @@
 import React from "react";
 import { useHass } from "../../hooks";
-import { DashboardCard } from "../ui-elements";
+import { DashboardCard, UnavailableBadge } from "../ui-elements";
 import "./AccessDoors.css";
 import doorOpen from "../../resources/icons/door_open.png";
 import doorClosed from "../../resources/icons/door_closed.png";
@@ -16,11 +16,16 @@ const AccessDoors = () => {
   const entities = entityIds.map((entityId) => states[entityId]);
 
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
+  const entitiesUnavailable = entities.filter(
+    (entity) => entity?.state === "unavailable"
+  );
 
   return (
     <DashboardCard variant={entitiesOn?.length && "warning"}>
       <div className="flex-col-center access-doors">
-        {/* <FontAwesomeIcon icon={faDoorClosed} size="3x" /> */}
+        {!!entitiesUnavailable.length && (
+          <UnavailableBadge count={entitiesUnavailable.length} />
+        )}
         <img src={entitiesOn?.length ? doorOpen : doorClosed} />
         <h3>Doors</h3>
         <p>{entitiesOn.length ? `Warning` : `All closed`}</p>

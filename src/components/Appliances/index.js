@@ -67,7 +67,7 @@ const Appliances = () => {
   return (
     <DashboardCard variant={entitiesOn?.length && "media-on"}>
       <div className="flex-col-center appliances">
-        {entitiesUnavailable.length && (
+        {!!entitiesUnavailable.length && (
           <UnavailableBadge count={entitiesUnavailable.length} />
         )}
         {/* <FontAwesomeIcon icon={faPlug} size="3x" /> */}

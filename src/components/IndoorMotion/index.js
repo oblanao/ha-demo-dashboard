@@ -1,6 +1,6 @@
 import React from "react";
 import { useHass } from "../../hooks";
-import { DashboardCard } from "../ui-elements";
+import { DashboardCard, UnavailableBadge } from "../ui-elements";
 import "./IndoorMotion.css";
 import motionSensor from "../../resources/icons/motion-sensor.png";
 
@@ -15,10 +15,16 @@ const IndoorMotion = () => {
   const entities = entityIds.map((entityId) => states[entityId]);
 
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
+  const entitiesUnavailable = entities.filter(
+    (entity) => entity?.state === "unavailable"
+  );
 
   return (
     <DashboardCard variant={entitiesOn?.length && "warning"}>
       <div className="flex-col-center indoor-motion">
+        {!!entitiesUnavailable.length && (
+          <UnavailableBadge count={entitiesUnavailable.length} />
+        )}
         <img src={motionSensor} />
         <h3>Indoors</h3>
         <p>{entitiesOn.length ? `Detected` : `Clear`}</p>

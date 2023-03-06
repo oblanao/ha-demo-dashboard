@@ -1,8 +1,6 @@
-// import { faLock } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useHass } from "../../hooks";
-import { DashboardCard } from "../ui-elements";
+import { DashboardCard, UnavailableBadge } from "../ui-elements";
 import "./FrontLock.css";
 import lockClosed from "../../resources/icons/lock_closed.png";
 import lockOpen from "../../resources/icons/lock_open.png";
@@ -23,20 +21,14 @@ const FrontLock = () => {
   //   });
 
   const isUnlocked = data.state === "unlocked";
+  const isUnavailable = data.state === "unavailable";
 
   return (
     <DashboardCard variant={isUnlocked && "warning"}>
       <div className="front-lock flex-col-center">
+        {isUnavailable && <UnavailableBadge />}
         <img src={isUnlocked ? lockOpen : lockClosed} />
-        {/* <FontAwesomeIcon icon={faLock} size="3x" /> */}
         <h3>Front Lock</h3>
-        {/* <p>{data.state}</p>
-        {data.state === "unlocked" && (
-          <button onClick={() => lockDoor()}>Lock</button>
-        )}
-        {data.state === "locked" && (
-          <button onClick={() => openDoor()}>Unlock</button>
-        )} */}
       </div>
     </DashboardCard>
   );

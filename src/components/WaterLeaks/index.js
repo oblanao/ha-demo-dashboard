@@ -1,6 +1,6 @@
 import React from "react";
 import { useHass } from "../../hooks";
-import { DashboardCard } from "../ui-elements";
+import { DashboardCard, UnavailableBadge } from "../ui-elements";
 import "./WaterLeaks.css";
 import waterLeak from "../../resources/icons/water-leak.png";
 
@@ -16,11 +16,16 @@ const WaterLeaks = () => {
   const entities = entityIds.map((entityId) => states[entityId]);
 
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
+  const entitiesUnavailable = entities.filter(
+    (entity) => entity?.state === "unavailable"
+  );
 
   return (
     <DashboardCard variant={entitiesOn?.length && "warning"}>
       <div className="flex-col-center water-leaks">
-        {/* <FontAwesomeIcon icon={faWater} size="3x" /> */}
+        {!!entitiesUnavailable.length && (
+          <UnavailableBadge count={entitiesUnavailable.length} />
+        )}
         <img src={waterLeak} />
         <h3>Leaks</h3>
         <p>{entitiesOn.length ? `WARNING` : `Clear`}</p>

@@ -5,3 +5,8 @@
   color: orange;
   font-size: 1.25rem;
 }
+
+.unavailable-badge img.badge-icon {
+  height: 1.75rem;
+  width: auto;
+}
