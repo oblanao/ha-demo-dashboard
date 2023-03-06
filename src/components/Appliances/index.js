@@ -7,7 +7,7 @@ import plug from "../../resources/icons/plug.png";
 const Appliances = () => {
   const { hass } = useHass();
   const { states } = hass;
-  console.log(states["switch.ps5_power"]);
+
   const devices = [
     {
       entity_id: "fan.air_purifier",
@@ -56,7 +56,6 @@ const Appliances = () => {
   const entitiesUnavailable = entities.filter(
     (entity) => entity?.state === "unavailable"
   );
-
   // const turnAllDevicesOff = () => {
   //   entitiesOn.map(({ entity_id, turn_off_service }) =>
   //     hass.callService(turn_off_service.domain, turn_off_service.action, {

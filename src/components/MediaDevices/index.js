@@ -1,7 +1,7 @@
 import React from "react";
 import { useHass } from "../../hooks";
 import "./MediaDevices.css";
-import { DashboardCard } from "../ui-elements";
+import { DashboardCard, UnavailableBadge } from "../ui-elements";
 import mediaDevices from "../../resources/icons/media-devices.png";
 const MediaDevices = () => {
   const { hass } = useHass();
@@ -16,7 +16,9 @@ const MediaDevices = () => {
   const entities = entityIds.map((entityId) => states[entityId]);
 
   const entitiesOn = entities.filter((entity) => entity?.state !== "off");
-
+  const entitiesUnavailable = entities.filter(
+    (entity) => entity?.state === "unavailable"
+  );
   // const turnAllDevicesOff = () =>
   //   hass.callService("homeassistant", "turn_off", {
   //     entity_id: "media_player.all_media_players",
@@ -25,6 +27,7 @@ const MediaDevices = () => {
   return (
     <DashboardCard variant={entitiesOn?.length && "media-on"}>
       <div className="flex-col-center media-devices">
+        {!!entitiesUnavailable.length && <UnavailableBadge />}
         <img src={mediaDevices} />
         {/* <FontAwesomeIcon icon={faPodcast} size="3x" /> */}
         <h3>Media Devices</h3>

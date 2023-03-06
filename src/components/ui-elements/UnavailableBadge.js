@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./UnavailableBadge.css";
 
-const UnavailableBadge = ({ count }) => {
+const UnavailableBadge = () => {
   return (
     <div className="unavailable-badge">
       {<FontAwesomeIcon icon={faExclamationTriangle} />}

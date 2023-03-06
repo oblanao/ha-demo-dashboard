@@ -52,7 +52,7 @@ const Dashboard = () => {
     console.log(res);
   };
 
-  testApi();
+  // testApi();
   return (
     <div className="dashboard gap-2">
       <HelloMessage />
