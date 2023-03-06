@@ -1,12 +1,13 @@
 import React from "react";
 import { useHass } from "../../hooks";
-import { DashboardCard } from "../ui-elements";
+import { DashboardCard, UnavailableBadge } from "../ui-elements";
 import "./Appliances.css";
 import plug from "../../resources/icons/plug.png";
 
 const Appliances = () => {
   const { hass } = useHass();
   const { states } = hass;
+  console.log(states["switch.ps5_power"]);
   const devices = [
     {
       entity_id: "fan.air_purifier",
@@ -36,13 +37,13 @@ const Appliances = () => {
         action: "turn_off",
       },
     },
-    {
-      entity_id: "humidifier.deerma_jsq2w_dbfc_humidifier",
-      turn_off_service: {
-        domain: "humidifier",
-        action: "turn_off",
-      },
-    },
+    // {
+    //   entity_id: "humidifier.deerma_jsq2w_dbfc_humidifier",
+    //   turn_off_service: {
+    //     domain: "humidifier",
+    //     action: "turn_off",
+    //   },
+    // },
   ];
 
   const entities = devices.map(({ entity_id, turn_off_service }) => ({
@@ -52,6 +53,9 @@ const Appliances = () => {
   }));
 
   const entitiesOn = entities.filter((entity) => entity?.state === "on");
+  const entitiesUnavailable = entities.filter(
+    (entity) => entity?.state === "unavailable"
+  );
 
   // const turnAllDevicesOff = () => {
   //   entitiesOn.map(({ entity_id, turn_off_service }) =>
@@ -64,10 +68,13 @@ const Appliances = () => {
   return (
     <DashboardCard variant={entitiesOn?.length && "media-on"}>
       <div className="flex-col-center appliances">
+        {entitiesUnavailable.length && (
+          <UnavailableBadge count={entitiesUnavailable.length} />
+        )}
         {/* <FontAwesomeIcon icon={faPlug} size="3x" /> */}
         <img src={plug} />
         <h3>Appliances</h3>
-        <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`}</p>
+        <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`} </p>
         {/* {!!entitiesOn.length && (
           <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
         )} */}
