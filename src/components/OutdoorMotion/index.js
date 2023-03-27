@@ -28,9 +28,7 @@ const OutdoorMotion = () => {
         )}
         <img src={motionSensor} />
         <h3>Outdoors</h3>
-        <p>
           <p>{entitiesOn.length ? `Detected` : `Clear`}</p>
-        </p>
       </div>
     </DashboardCard>
   );
