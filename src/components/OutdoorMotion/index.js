@@ -29,9 +29,7 @@ const OutdoorMotion = () => {
         <img src={motionSensor} />
         <h3>Outdoors</h3>
         <p>
-          {entitiesOn.length
-            ? `${entitiesOn.length} sensors triggered`
-            : `Clear`}
+          <p>{entitiesOn.length ? `Detected` : `Clear`}</p>
         </p>
       </div>
     </DashboardCard>
