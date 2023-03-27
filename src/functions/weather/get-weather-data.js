@@ -3,9 +3,13 @@ import data from "../../data/weather_forecast.json";
 
 const getWeatherData = (weather_state) => {
   const isSunny = weather_state === "sunny";
+  const isRainy = weather_state === "rainy";
+
   let info = data[weather_state];
   if (isSunny) {
     info = data["clearsky"];
+  } else if (isRainy) {
+    info = data["rain"];
   }
   if (!info) {
     return {};
@@ -14,8 +18,10 @@ const getWeatherData = (weather_state) => {
   const { desc_en: readable_state, variants } = info;
 
   let icon_name = weather_state;
-  if (weather_state === "sunny") {
+  if (isSunny) {
     icon_name = "clearsky";
+  } else if (isRainy) {
+    icon_name = "rain";
   }
   if (variants) {
     if (isDaytime()) {
