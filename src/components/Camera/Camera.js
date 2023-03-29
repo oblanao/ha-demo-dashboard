@@ -14,8 +14,9 @@ const Camera = ({ entity_id }) => {
 
   return (
     <>
-      <img className="camera-image" src={image} onClick={handleClick} />
-
+      <div onClick={handleClick}>
+        <img className="camera-image" src={image} />
+      </div>
       <ActionSheet
         isOpen={isOpen}
         setOpen={setOpen}
