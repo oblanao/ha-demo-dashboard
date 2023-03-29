@@ -12,7 +12,7 @@ const Weather = () => {
 
   const data = states["weather.snagov_home"];
   if (!data) {
-    return;
+    return null;
   }
   const { attributes } = data;
   
