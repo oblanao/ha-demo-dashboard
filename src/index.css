@@ -33,17 +33,17 @@
   position: relative;
 }
 
-.flex-col-center img {
+.dashboard-card .flex-col-center img {
   width: 100%;
   max-width: 4rem;
   height: auto;
   margin-bottom: 0.5rem;
 }
 
-.flex-col-center h3 {
+.dashboard-card .flex-col-center h3 {
   font-size: 1.25rem;
 }
 
-.flex-col-center p {
+.dashboard-card .flex-col-center p {
   color: #e3dc95;
 }
