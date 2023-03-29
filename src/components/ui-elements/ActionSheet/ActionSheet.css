@@ -32,7 +32,7 @@
 
 .actionsheet-contents .actionsheet-header {
   padding: 14px 10px 13px 10px;
-  color: #666666;
+  color: #80727b;
   text-align: center;
   font-size: 13px;
 }
@@ -85,4 +85,8 @@
 
 .actionsheet > .actionsheet-contents:not(:last-child) {
   margin-bottom: 0.5rem;
+}
+
+.action-button:not(.action-button-separate) {
+  border-top: 1px solid #333333;
 }
