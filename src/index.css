@@ -42,6 +42,7 @@
 
 .dashboard-card .flex-col-center h3 {
   font-size: 1.25rem;
+  margin-bottom: .25rem;
 }
 
 .dashboard-card .flex-col-center p {
