@@ -3,6 +3,7 @@ import { useHass } from "../../hooks";
 import { DashboardCard, UnavailableBadge } from "../ui-elements";
 import "./Appliances.css";
 import plug from "../../resources/icons/plug.png";
+import WithActionSheet from "../ui-elements/ActionSheet/WithActionSheet";
 
 const Appliances = () => {
   const { hass } = useHass();
@@ -56,29 +57,44 @@ const Appliances = () => {
   const entitiesUnavailable = entities.filter(
     (entity) => entity?.state === "unavailable"
   );
-  // const turnAllDevicesOff = () => {
-  //   entitiesOn.map(({ entity_id, turn_off_service }) =>
-  //     hass.callService(turn_off_service.domain, turn_off_service.action, {
-  //       entity_id,
-  //     })
-  //   );
-  // };
+
+  const turnAllDevicesOff = () => {
+    entitiesOn.map(({ entity_id, turn_off_service }) =>
+      hass.callService(turn_off_service.domain, turn_off_service.action, {
+        entity_id,
+      })
+    );
+  };
 
   return (
-    <DashboardCard variant={entitiesOn?.length && "media-on"}>
-      <div className="flex-col-center appliances">
-        {!!entitiesUnavailable.length && (
-          <UnavailableBadge count={entitiesUnavailable.length} />
-        )}
-        {/* <FontAwesomeIcon icon={faPlug} size="3x" /> */}
-        <img src={plug} />
-        <h3>Appliances</h3>
-        <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`} </p>
-        {/* {!!entitiesOn.length && (
-          <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
-        )} */}
-      </div>
-    </DashboardCard>
+    <WithActionSheet
+      options={{
+        title: "Appliances",
+        subtitle: entitiesOn.length
+          ? `There are ${entitiesOn.length} appliances on.`
+          : `All appliances are off`,
+        actions: entitiesOn.length
+          ? [
+              {
+                caption: "Turn all off",
+                onClick: turnAllDevicesOff,
+                isDestructive: false,
+              },
+            ]
+          : [],
+      }}
+    >
+      <DashboardCard variant={entitiesOn?.length && "media-on"}>
+        <div className="flex-col-center appliances">
+          {!!entitiesUnavailable.length && (
+            <UnavailableBadge count={entitiesUnavailable.length} />
+          )}
+          <img src={plug} />
+          <h3>Appliances</h3>
+          <p>{entitiesOn.length ? `${entitiesOn.length} on` : `Clear`} </p>
+        </div>
+      </DashboardCard>
+    </WithActionSheet>
   );
 };
 
