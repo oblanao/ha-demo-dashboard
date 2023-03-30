@@ -22,7 +22,7 @@ const ActionSheetContent = ({ show, setShow, title, subtitle, actions }) => {
       {caption}
     </button>
   );
-  console.log({ actions });
+
   return (
     <div className="actionsheet">
       <div className="actionsheet-contents">
