@@ -6,10 +6,17 @@ const ActionSheetContent = ({ show, setShow, title, subtitle, actions }) => {
     setShow(false);
   };
 
+  const handleButtonClick = (cb) => {
+    if (typeof cb === "function") {
+      cb();
+    }
+    setShow(false);
+  };
+
   const showAction = ({ caption, onClick, isDestructive }) => (
     <button
       className={isDestructive ? "action-button destructive" : "action-button"}
-      onClick={onClick}
+      onClick={() => handleButtonClick(onClick)}
       key={`btn-action-${caption}`}
     >
       {caption}
@@ -25,8 +32,6 @@ const ActionSheetContent = ({ show, setShow, title, subtitle, actions }) => {
         </div>
         <div className="actionsheet-action-buttons">
           {actions.map(showAction)}
-          {/* <button className="action-button destructive">Option 1</button>
-          <button className="action-button">Option 2</button> */}
         </div>
       </div>
       <div className="actionsheet-contents">
