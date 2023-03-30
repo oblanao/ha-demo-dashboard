@@ -87,6 +87,8 @@
   margin-bottom: 0.5rem;
 }
 
-.action-button:not(.action-button-separate) {
+/* We need the first child, as we may sometimes have only one child */
+.action-button:not(:last-child),
+.action-button:first-child {
   border-top: 1px solid #333333;
 }
