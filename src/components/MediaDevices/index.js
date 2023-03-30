@@ -3,6 +3,7 @@ import { useHass } from "../../hooks";
 import "./MediaDevices.css";
 import { DashboardCard, UnavailableBadge } from "../ui-elements";
 import mediaDevices from "../../resources/icons/media-devices.png";
+import WithActionSheet from "../ui-elements/ActionSheet/WithActionSheet";
 const MediaDevices = () => {
   const { hass } = useHass();
   const { states } = hass;
@@ -19,24 +20,39 @@ const MediaDevices = () => {
   const entitiesUnavailable = entities.filter(
     (entity) => entity?.state === "unavailable"
   );
-  // const turnAllDevicesOff = () =>
-  //   hass.callService("homeassistant", "turn_off", {
-  //     entity_id: "media_player.all_media_players",
-  //   });
+
+  const turnAllDevicesOff = () =>
+    hass.callService("homeassistant", "turn_off", {
+      entity_id: "media_player.all_media_players",
+    });
 
   return (
-    <DashboardCard variant={entitiesOn?.length && "media-on"}>
-      <div className="flex-col-center media-devices">
-        {!!entitiesUnavailable.length && <UnavailableBadge />}
-        <img src={mediaDevices} />
-        {/* <FontAwesomeIcon icon={faPodcast} size="3x" /> */}
-        <h3>Media Devices</h3>
-        <p>{entitiesOn.length ? `${entitiesOn.length} on` : `All off`}</p>
-        {/* {!!entitiesOn.length && (
-          <button onClick={() => turnAllDevicesOff()}>Turn all off</button>
-        )} */}
-      </div>
-    </DashboardCard>
+    <WithActionSheet
+      options={{
+        title: "Media Devices",
+        subtitle: entitiesOn.length
+          ? `There are ${entitiesOn.length} media devices on.`
+          : `All  media devices are off`,
+        actions: entitiesOn.length
+          ? [
+              {
+                caption: "Turn all off",
+                onClick: turnAllDevicesOff,
+                isDestructive: false,
+              },
+            ]
+          : [],
+      }}
+    >
+      <DashboardCard variant={entitiesOn?.length && "media-on"}>
+        <div className="flex-col-center media-devices">
+          {!!entitiesUnavailable.length && <UnavailableBadge />}
+          <img src={mediaDevices} />
+          <h3>Media Devices</h3>
+          <p>{entitiesOn.length ? `${entitiesOn.length} on` : `All off`}</p>
+        </div>
+      </DashboardCard>
+    </WithActionSheet>
   );
 };
 
