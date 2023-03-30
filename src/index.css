@@ -33,7 +33,7 @@
   position: relative;
 }
 
-.dashboard-card .flex-col-center img {
+.dashboard-card .flex-col-center img:not(.badge-icon) {
   width: 100%;
   max-width: 4rem;
   height: auto;
