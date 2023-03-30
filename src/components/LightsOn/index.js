@@ -44,13 +44,15 @@ const LightsOn = () => {
         subtitle: entitiesOn.length
           ? `There are ${entitiesOn.length} lights on.`
           : `All lights are off`,
-        actions: [
-          entitiesOn.length && {
-            caption: "Lights off",
-            onClick: turnAllLightsOff,
-            isDestructive: false,
-          },
-        ],
+        actions: entitiesOn.length
+          ? [
+              {
+                caption: "Lights off",
+                onClick: turnAllLightsOff,
+                isDestructive: false,
+              },
+            ]
+          : [],
       }}
     >
       <DashboardCard variant={entitiesOn?.length && "lights-on"}>
