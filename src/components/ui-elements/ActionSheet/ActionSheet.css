@@ -89,6 +89,6 @@
 
 /* We need the first child, as we may sometimes have only one child */
 .action-button:not(:last-child),
-.action-button:first-child {
+.action-button:first-child:not(.action-button-separate) {
   border-top: 1px solid #333333;
 }
