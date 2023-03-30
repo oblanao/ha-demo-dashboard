@@ -17,7 +17,8 @@ const FrontGates = () => {
     });
 
   const isClosed = data.state === "off";
-  const isUnavailable = data.state === "unavailable";
+  const isUnavailable =
+    data.state === "unavailable" || data.state === "unknown";
 
   return (
     <WithActionSheet

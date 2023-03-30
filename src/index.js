@@ -4,4 +4,5 @@ import "./animations.css";
 import "./font.css";
 import "./index.css";
 
-customElements.define("home-check", ReactPanelElement(App));
+// TODO-prod: customElement name is home-check
+customElements.define("home-check-dev", ReactPanelElement(App));
