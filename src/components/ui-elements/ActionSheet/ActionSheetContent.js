@@ -22,7 +22,7 @@ const ActionSheetContent = ({ show, setShow, title, subtitle, actions }) => {
       {caption}
     </button>
   );
-
+  console.log({ actions });
   return (
     <div className="actionsheet">
       <div className="actionsheet-contents">
@@ -30,9 +30,11 @@ const ActionSheetContent = ({ show, setShow, title, subtitle, actions }) => {
           <h3>{title}</h3>
           {!!subtitle && <p>{subtitle}</p>}
         </div>
-        <div className="actionsheet-action-buttons">
-          {actions.map(showAction)}
-        </div>
+        {actions?.length ? (
+          <div className="actionsheet-action-buttons">
+            {actions.map(showAction)}
+          </div>
+        ) : null}
       </div>
       <div className="actionsheet-contents">
         <button
