@@ -9,7 +9,11 @@ const Camera = ({ entity_id }) => {
   const { states } = hass;
   const image = states[`camera.${entity_id}`].attributes.entity_picture;
 
-  return <img className="camera-image" src={image} />;
+  return (
+    <div className="camera-container">
+      <img className="camera-image" src={image} />
+    </div>
+  );
 };
 
 export default Camera;
