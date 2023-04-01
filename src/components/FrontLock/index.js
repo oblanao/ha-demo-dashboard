@@ -20,7 +20,7 @@ const FrontLock = () => {
       options={{
         title: "Front Door",
         subtitle: `Front door is ${isUnlocked ? "unlocked" : "locked"}`,
-        actions: getLockActions(isUnlocked, hass),
+        actions: getLockActions(hass, isUnlocked),
       }}
     >
       <DashboardCard variant={isUnlocked && "warning"}>
