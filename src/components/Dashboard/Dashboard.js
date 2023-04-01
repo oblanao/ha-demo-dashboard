@@ -62,7 +62,7 @@ const Dashboard = () => {
       <div className="">
         <Thermostat />
       </div>
-      <Camera entity_id="front_camera" />
+      <Camera entity_id="front_camera_mainstream" />
       <div className="grid-2-cols gap-2">
         <FrontGates />
         <FrontLock />
